@@ -1,4 +1,5 @@
 import { LocaleLink } from "@i18n/routing";
+import SocialLinks from "@marketing/shared/components/SocialLinks";
 import { Logo } from "@shared/components/Logo";
 
 export function Footer() {
@@ -14,27 +15,19 @@ export function Footer() {
 				</div>
 
 				<div className="flex flex-col gap-2">
+					<LocaleLink href="/projects" className="block">
+						Projects
+					</LocaleLink>
 					<LocaleLink href="/blogs" className="block">
 						Blogs
 					</LocaleLink>
-
-					<a href="#features" className="block">
-						Features
-					</a>
-
-					<a href="/#pricing" className="block">
-						Pricing
-					</a>
 				</div>
 
 				<div className="flex flex-col gap-2">
-					<LocaleLink href="/legal/privacy-policy" className="block">
-						Privacy policy
+					<LocaleLink href="/contact" className="block">
+						Contact
 					</LocaleLink>
-
-					<LocaleLink href="/legal/terms" className="block">
-						Terms and conditions
-					</LocaleLink>
+					<SocialLinks />
 				</div>
 			</div>
 		</footer>
