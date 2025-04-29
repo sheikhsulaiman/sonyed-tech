@@ -8,14 +8,14 @@ export function Footer() {
 				<div>
 					<Logo className="opacity-70 grayscale" />
 					<p className="mt-3 text-sm opacity-70">
-						© {new Date().getFullYear()} supastarter. All rights
+						© {new Date().getFullYear()} sonyedtech. All rights
 						reserved.
 					</p>
 				</div>
 
 				<div className="flex flex-col gap-2">
-					<LocaleLink href="/blog" className="block">
-						Blog
+					<LocaleLink href="/blogs" className="block">
+						Blogs
 					</LocaleLink>
 
 					<a href="#features" className="block">

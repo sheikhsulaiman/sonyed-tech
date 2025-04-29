@@ -1,5 +1,5 @@
 {
-	"name": "supastarter-nextjs",
+	"name": "sonyedtech-nextjs",
 	"private": true,
 	"scripts": {
 		"build": "dotenv -c -- turbo build",

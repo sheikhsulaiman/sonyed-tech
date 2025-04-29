@@ -20,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			})),
 		),
 		...allPosts.map((post) => ({
-			url: new URL(`/${post.locale}/blog/${post.path}`, baseUrl).href,
+			url: new URL(`/${post.locale}/blogs/${post.path}`, baseUrl).href,
 			lastModified: new Date(),
 		})),
 		...allLegalPages.map((page) => ({

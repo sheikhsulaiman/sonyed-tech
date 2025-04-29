@@ -1,5 +1,5 @@
 import { LocaleLink, localeRedirect } from "@i18n/routing";
-import { PostContent } from "@marketing/blog/components/PostContent";
+import { PostContent } from "@marketing/blogs/components/PostContent";
 import { getBaseUrl } from "@repo/utils";
 import { getActivePathFromUrlParam } from "@shared/lib/content";
 import { allPosts } from "content-collections";
@@ -18,9 +18,7 @@ export function generateStaticParams() {
 	}));
 }
 
-export async function generateMetadata(props: {
-	params: Promise<Params>;
-}) {
+export async function generateMetadata(props: { params: Promise<Params> }) {
 	const params = await props.params;
 
 	const { path } = params;
@@ -44,9 +42,7 @@ export async function generateMetadata(props: {
 	};
 }
 
-export default async function BlogPostPage(props: {
-	params: Promise<Params>;
-}) {
+export default async function BlogPostPage(props: { params: Promise<Params> }) {
 	const { path, locale } = await props.params;
 	setRequestLocale(locale);
 
@@ -56,7 +52,7 @@ export default async function BlogPostPage(props: {
 	);
 
 	if (!post) {
-		return localeRedirect({ href: "/blog", locale });
+		return localeRedirect({ href: "/blogs", locale });
 	}
 
 	const { title, date, authorName, authorImage, tags, image, body } = post;
@@ -65,7 +61,7 @@ export default async function BlogPostPage(props: {
 		<div className="container max-w-6xl pt-32 pb-24">
 			<div className="mx-auto max-w-2xl">
 				<div className="mb-12">
-					<LocaleLink href="/blog">&larr; Back to blog</LocaleLink>
+					<LocaleLink href="/blogs">&larr; Back to blog</LocaleLink>
 				</div>
 
 				<h1 className="font-bold text-4xl">{title}</h1>

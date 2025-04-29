@@ -55,4 +55,4 @@ Key Conventions
 - Avoid for data fetching or state management.
 
 Follow Next.js docs for Data Fetching, Rendering, and Routing.
-Follow the documentation at supastarter.dev/docs/nextjs for supastarter specifc patterns.
+Follow the documentation at sonyedtech.dev/docs/nextjs for sonyedtech specifc patterns.

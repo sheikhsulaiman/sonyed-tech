@@ -49,27 +49,17 @@ export function NavBar() {
 		setMobileMenuOpen(false);
 	}, [localePathname]);
 
-	const isDocsPage = localePathname.startsWith("/docs");
-
 	const menuItems: {
 		label: string;
 		href: string;
 	}[] = [
 		{
-			label: t("common.menu.pricing"),
-			href: "/#pricing",
+			label: t("common.menu.projects"),
+			href: "/projects",
 		},
 		{
-			label: t("common.menu.faq"),
-			href: "/#faq",
-		},
-		{
-			label: t("common.menu.blog"),
-			href: "/blog",
-		},
-		{
-			label: t("common.menu.changelog"),
-			href: "/changelog",
+			label: t("common.menu.blogs"),
+			href: "/blogs",
 		},
 		...(config.contactForm.enabled
 			? [
@@ -79,10 +69,6 @@ export function NavBar() {
 					},
 				]
 			: []),
-		{
-			label: t("common.menu.docs"),
-			href: "/docs",
-		},
 	];
 
 	const isMenuItemActive = (href: string) => localePathname.startsWith(href);
@@ -91,7 +77,7 @@ export function NavBar() {
 		<nav
 			className={cn(
 				"fixed top-0 left-0 z-50 w-full transition-shadow duration-200",
-				!isTop || isDocsPage
+				!isTop
 					? "bg-card/80 shadow-sm backdrop-blur-lg"
 					: "shadow-none",
 			)}
@@ -101,7 +87,7 @@ export function NavBar() {
 				<div
 					className={cn(
 						"flex items-center justify-stretch gap-6 transition-[padding] duration-200",
-						!isTop || isDocsPage ? "py-4" : "py-6",
+						!isTop ? "py-4" : "py-6",
 					)}
 				>
 					<div className="flex flex-1 justify-start">

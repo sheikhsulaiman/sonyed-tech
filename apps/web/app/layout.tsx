@@ -5,9 +5,9 @@ import "cropperjs/dist/cropper.css";
 
 export const metadata: Metadata = {
 	title: {
-		absolute: "supastarter.nextjs - Application",
-		default: "supastarter.nextjs- Application",
-		template: "%s | supastarter.nextjs - Application",
+		absolute: "sonyedtech.nextjs - Application",
+		default: "sonyedtech.nextjs- Application",
+		template: "%s | sonyedtech.nextjs - Application",
 	},
 };
 

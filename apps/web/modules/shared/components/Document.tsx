@@ -5,7 +5,7 @@ import { Toaster } from "@ui/components/toast";
 import { cn } from "@ui/lib";
 import { Provider as JotaiProvider } from "jotai";
 import { ThemeProvider } from "next-themes";
-import { Poppins } from "next/font/google";
+import { Poppins, Space_Grotesk } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import type { PropsWithChildren } from "react";
@@ -14,6 +14,11 @@ const sansFont = Poppins({
 	subsets: ["latin"],
 	weight: ["400", "500", "600", "700"],
 	variable: "--font-sans",
+});
+const spaceGroteskFont = Space_Grotesk({
+	subsets: ["latin"],
+	weight: ["400", "500", "600", "700"],
+	variable: "--font-space-grotesk",
 });
 
 export function Document({
@@ -26,6 +31,7 @@ export function Document({
 				className={cn(
 					"min-h-screen bg-background font-sans text-foreground antialiased",
 					sansFont.variable,
+					spaceGroteskFont.variable,
 				)}
 			>
 				<NuqsAdapter>

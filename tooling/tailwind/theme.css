@@ -1,4 +1,5 @@
 @theme {
+	--font-space-grotesk: var(--font-space-grotesk);
 	--color-background: var(--background);
 	--color-foreground: var(--foreground);
 	--color-card: var(--card);

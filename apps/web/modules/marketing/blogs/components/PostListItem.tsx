@@ -20,7 +20,7 @@ export function PostListItem({ post }: { post: Post }) {
 						className="object-cover object-center"
 					/>
 					<LocaleLink
-						href={`/blog/${path}`}
+						href={`/blogs/${path}`}
 						className="absolute inset-0"
 					/>
 				</div>
@@ -40,7 +40,7 @@ export function PostListItem({ post }: { post: Post }) {
 			)}
 
 			<LocaleLink
-				href={`/blog/${path}`}
+				href={`/blogs/${path}`}
 				className="font-semibold text-xl"
 			>
 				{title}

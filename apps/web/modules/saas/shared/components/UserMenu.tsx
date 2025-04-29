@@ -154,7 +154,7 @@ export function UserMenu({ showUserName }: { showUserName?: boolean }) {
 
 				<DropdownMenuItem asChild>
 					<a
-						href="https://docs.supastarter.dev"
+						href="https://docs.sonyedtech.dev"
 						target="_blank"
 						rel="noopener noreferrer"
 					>
