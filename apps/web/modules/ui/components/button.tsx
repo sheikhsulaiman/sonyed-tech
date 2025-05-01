@@ -7,19 +7,19 @@ import type { VariantProps } from "class-variance-authority";
 import { cva } from "class-variance-authority";
 
 const buttonVariants = cva(
-	"flex items-center justify-center border font-semibold enabled:cursor-pointer transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 [&>svg]:mr-1.5 [&>svg]:opacity-60 [&>svg+svg]:hidden",
+	"flex items-center justify-center font-semibold enabled:cursor-pointer transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 [&>svg]:mr-1.5 [&>svg]:opacity-60 [&>svg+svg]:hidden",
 	{
 		variants: {
 			variant: {
 				primary:
-					"border-primary bg-primary text-primary-foreground hover:bg-primary/90",
+					"border border-primary bg-primary text-primary-foreground hover:bg-primary/90",
 				error: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
 				outline:
 					"border border-input text-primary-foreground bg-background/50 hover:bg-accent hover:text-accent-foreground",
 				secondary:
-					"border-secondary bg-secondary text-secondary-foreground hover:bg-secondary/90",
-				ghost: "border-transparent text-primary hover:bg-primary/10 hover:text-primary",
-				link: "border-transparent text-primary underline-offset-4 hover:underline",
+					"border border-secondary bg-secondary text-secondary-foreground hover:bg-secondary/90",
+				ghost: "border border-transparent text-primary hover:bg-primary/10 hover:text-primary",
+				link: "text-primary underline-offset-4 hover:underline",
 			},
 			size: {
 				md: "h-9 rounded-md px-4 text-sm",
