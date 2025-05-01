@@ -5,7 +5,7 @@ import { useNewsletterSignupMutation } from "@marketing/home/lib/api";
 import { Alert, AlertDescription, AlertTitle } from "@ui/components/alert";
 import { Button } from "@ui/components/button";
 import { Input } from "@ui/components/input";
-import { CheckCircleIcon, KeyIcon } from "lucide-react";
+import { CheckCircleIcon, LeafIcon } from "lucide-react";
 
 import { useTranslations } from "next-intl";
 import { useForm } from "react-hook-form";
@@ -38,7 +38,7 @@ export function Newsletter() {
 		<section className="py-16">
 			<div className="container">
 				<div className="mb-8 text-center">
-					<KeyIcon className="mx-auto mb-3 size-8 text-primary" />
+					<LeafIcon className="mx-auto mb-3 size-8 text-primary" />
 					<h1 className="font-bold text-3xl lg:text-4xl">
 						{t("newsletter.title")}
 					</h1>

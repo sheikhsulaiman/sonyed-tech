@@ -105,7 +105,7 @@ export const config = {
 		// whether the contact form should be enabled
 		enabled: true,
 		// the email to which the contact form messages should be sent
-		to: "hello@your-domain.com",
+		to: "sonyedtech@gmail.com",
 		// the subject of the email
 		subject: "Contact form message",
 	},

@@ -51,7 +51,7 @@ export default function SocialLinks() {
 						href={url}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="text-xl"
+						className="text-xl text-primary-foreground"
 					>
 						<Icon />
 					</a>

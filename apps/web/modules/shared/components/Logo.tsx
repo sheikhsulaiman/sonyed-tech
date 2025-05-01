@@ -22,7 +22,7 @@ export function Logo({
 				width={28}
 			/>
 			{withLabel && (
-				<span className="hidden text-lg md:block font-space-grotesk">
+				<span className="text-lg font-space-grotesk">
 					<span className="border-primary border-l-2 mx-2" />
 					sony<span className="text-primary">ed</span>.tech
 				</span>
