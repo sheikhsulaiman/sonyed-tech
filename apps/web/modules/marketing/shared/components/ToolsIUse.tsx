@@ -1,6 +1,6 @@
 "use client";
 
-import React, { type SVGProps } from "react";
+import React, { useEffect, useState, type SVGProps } from "react";
 
 import { LogoCarousel } from "@ui/components/logo-carousel";
 
@@ -1457,6 +1457,31 @@ const allLogos = [
 ];
 
 export function ToolsIUse() {
+	const [columnCount, setColumnCount] = useState(7);
+
+	useEffect(() => {
+		const updateColumnCount = () => {
+			if (window.innerWidth < 480) {
+				setColumnCount(3); // Very small screens
+			} else if (window.innerWidth < 768) {
+				setColumnCount(4); // Small screens
+			} else if (window.innerWidth < 1024) {
+				setColumnCount(5); // Medium screens
+			} else {
+				setColumnCount(7); // Large screens
+			}
+		};
+
+		// Set initial value
+		updateColumnCount();
+
+		// Listen for window resize
+		window.addEventListener("resize", updateColumnCount);
+
+		// Cleanup listener on unmount
+		return () => window.removeEventListener("resize", updateColumnCount);
+	}, []);
+
 	return (
 		<div className="space-y-8 py-24">
 			<div className="mx-auto flex w-full max-w-screen-lg flex-col items-center space-y-8">
@@ -1464,7 +1489,7 @@ export function ToolsIUse() {
 					I build & ship projects with these awesome tools
 				</h5>
 
-				<LogoCarousel columnCount={7} logos={allLogos} />
+				<LogoCarousel columnCount={columnCount} logos={allLogos} />
 			</div>
 		</div>
 	);
