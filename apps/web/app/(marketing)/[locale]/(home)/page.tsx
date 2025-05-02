@@ -1,3 +1,4 @@
+import BlogsSection from "@marketing/home/components/BlogsSection";
 import { FaqSection } from "@marketing/home/components/FaqSection";
 import { Features } from "@marketing/home/components/Features";
 import { Hero } from "@marketing/home/components/Hero";
@@ -15,6 +16,7 @@ export default async function Home({
 	return (
 		<>
 			<Hero />
+			<BlogsSection />
 			<Features />
 			<PricingSection />
 			<FaqSection />

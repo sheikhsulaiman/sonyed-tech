@@ -62,7 +62,7 @@ export function Hero() {
 
 				<div className="mt-6 flex flex-col items-center justify-between max-w-3xl mx-auto gap-3 md:flex-row">
 					<Button size="lg" variant="link" asChild className="p-0">
-						<Link href="/auth/login">
+						<Link href="/contact">
 							Let&apos;s create something meaningful together.
 							<ArrowUpRightIcon className="ml-2 size-4" />
 						</Link>
