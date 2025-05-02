@@ -49,10 +49,13 @@ export function Hero() {
 							Educational Technology based in Dhaka, Bangladesh. I
 							have a strong focus on Digital Transformation [DX]
 							and specialize in building modern, efficient, and
-							scalable websites and apps that help solve
-							real-world problems. My work blends design,
-							functionality, and innovation, offering end-to-end
-							development services from concept to launch.
+							scalable{" "}
+							<span className="text-foreground">websites</span>{" "}
+							and <span className="text-foreground">apps</span>{" "}
+							that help solve real-world problems. My work blends
+							design, functionality, and innovation, offering
+							end-to-end development services from concept to
+							launch.
 						</p>
 					</div>
 				</div>
@@ -66,6 +69,7 @@ export function Hero() {
 					</Button>
 					<SocialLinks />
 				</div>
+
 				<ToolsIUse />
 
 				<div className="mx-auto mt-16 max-w-5xl rounded-2xl border bg-card/50 p-2 shadow-lg dark:shadow-foreground/10">
