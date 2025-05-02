@@ -1,6 +1,7 @@
 "use client";
 
 import { LocaleLink, useLocalePathname } from "@i18n/routing";
+import SocialLinks from "@marketing/shared/components/SocialLinks";
 import { config } from "@repo/config";
 import { useSession } from "@saas/auth/hooks/use-session";
 import { ColorModeToggle } from "@shared/components/ColorModeToggle";
@@ -141,6 +142,7 @@ export function NavBar() {
 							<SheetContent className="w-[280px]" side="right">
 								<SheetTitle />
 								<div className="flex flex-col items-start justify-center">
+									<Logo className="mb-4" />
 									{menuItems.map((menuItem) => (
 										<LocaleLink
 											key={menuItem.href}
@@ -156,7 +158,11 @@ export function NavBar() {
 										</LocaleLink>
 									))}
 
-									<NextLink
+									<div className="px-3 py-2">
+										<SocialLinks />
+									</div>
+
+									{/* <NextLink
 										key={user ? "start" : "login"}
 										href={user ? "/app" : "/auth/login"}
 										className="block px-3 py-2 text-base"
@@ -165,7 +171,7 @@ export function NavBar() {
 										{user
 											? t("common.menu.dashboard")
 											: t("common.menu.login")}
-									</NextLink>
+									</NextLink> */}
 								</div>
 							</SheetContent>
 						</Sheet>
