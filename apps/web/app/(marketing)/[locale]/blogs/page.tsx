@@ -6,6 +6,8 @@ export async function generateMetadata() {
 	const t = await getTranslations();
 	return {
 		title: t("blog.title"),
+		description:
+			"Explore articles and insights on educational technology, digital transformation, and software development.",
 	};
 }
 

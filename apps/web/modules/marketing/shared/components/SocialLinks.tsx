@@ -2,6 +2,7 @@ import type { IconType } from "react-icons";
 // components/SocialLinks.tsx
 import {
 	FaEnvelope,
+	FaFacebook,
 	FaGithub,
 	FaLinkedin,
 	FaWhatsapp,
@@ -29,6 +30,11 @@ const socialLinks: SocialLink[] = [
 		name: "LinkedIn",
 		url: "https://linkedin.com/in/sheikh-sulaiman",
 		icon: FaLinkedin,
+	},
+	{
+		name: "Facebook",
+		url: "https://www.facebook.com/Sheikh.Sulaiman.Sony/",
+		icon: FaFacebook,
 	},
 	{
 		name: "Twitter",

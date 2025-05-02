@@ -110,7 +110,10 @@ export function ContactForm() {
 										{t("contact.form.message")}
 									</FormLabel>
 									<FormControl>
-										<Textarea {...field} />
+										<Textarea
+											{...field}
+											placeholder="Share your vision here, and let's craft something meaningful."
+										/>
 									</FormControl>
 									<FormMessage />
 								</FormItem>

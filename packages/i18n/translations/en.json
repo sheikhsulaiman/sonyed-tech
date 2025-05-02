@@ -180,7 +180,7 @@
 	},
 	"blog": {
 		"description": "Read the latest news from our company",
-		"title": "My awesome blog"
+		"title": "Blogs"
 	},
 	"changelog": {
 		"description": "Stay up to date with the latest changes in our product.",
@@ -207,7 +207,7 @@
 		}
 	},
 	"contact": {
-		"description": "We are here to help you. Please use the form below to get in touch with us.",
+		"description": "Whether you're looking to build a cutting-edge learning platform, a sleek web or mobile app, or brainstorm ideas that can spark digital transformation—I'm here to help!",
 		"form": {
 			"email": "Email",
 			"message": "Message",
@@ -218,7 +218,7 @@
 			},
 			"submit": "Send message"
 		},
-		"title": "Contact us"
+		"title": "Start a new project together 🚀"
 	},
 	"documentation": {
 		"title": "Documentation"
