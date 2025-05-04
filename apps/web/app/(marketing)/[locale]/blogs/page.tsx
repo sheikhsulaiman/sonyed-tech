@@ -53,7 +53,7 @@ export default function BlogsPage() {
 				<div className="absolute left-1/2 z-10 ml-[-500px] h-[250px] w-[500px] rounded-full bg-linear-to-r from-primary to-bg opacity-20 blur-[150px]" />
 				<div className="container relative z-20 pt-36 pb-12 text-center lg:pb-16">
 					<div className="text-center max-w-3xl mx-auto">
-						<h1 className="text-4xl md:text-5xl font-bold text-gray-900">
+						<h1 className="text-4xl md:text-5xl font-bold text-foreground">
 							Insights, Ideas & Innovation
 						</h1>
 						<p className="text-muted-foreground mt-4 text-lg">
