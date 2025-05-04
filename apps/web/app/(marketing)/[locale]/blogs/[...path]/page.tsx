@@ -114,7 +114,7 @@ export default async function BlogPostPage(props: { params: Promise<Params> }) {
 			</div>
 
 			{image && (
-				<div className="relative mt-6 w-[800px] h-[400px] mx-auto overflow-hidden rounded-xl border">
+				<div className="relative mt-6 w-[800px] h-[500px] mx-auto overflow-hidden rounded-xl border">
 					<Image
 						src={image}
 						alt={title}
