@@ -18,6 +18,11 @@ const nextConfig: NextConfig = {
 				protocol: "https",
 				hostname: "avatars.githubusercontent.com",
 			},
+			{
+				// images.pexels.com images
+				protocol: "https",
+				hostname: "images.pexels.com",
+			},
 		],
 	},
 	async redirects() {

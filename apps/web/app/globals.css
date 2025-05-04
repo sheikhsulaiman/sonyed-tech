@@ -40,3 +40,41 @@ div[role="tablist"].bg-secondary {
 input[cmdk-input] {
 	@apply border-none focus-visible:ring-0;
 }
+
+.gallery {
+	display: grid;
+	grid-template-columns: repeat(9, 1fr);
+	grid-template-rows: repeat(9, 1fr);
+	gap: 1rem;
+}
+
+figure[data-grid="img-1"] {
+	grid-area: 1 / 1 / 7 / 7;
+}
+figure[data-grid="img-2"] {
+	grid-area: 4 / 7 / 7 / 10;
+}
+figure[data-grid="img-3"] {
+	grid-area: 7 / 7 / 10 / 10;
+}
+figure[data-grid="img-4"] {
+	grid-area: 7 / 4 / 10 / 7;
+}
+figure[data-grid="img-5"] {
+	grid-area: 7 / 1 / 10 / 4;
+}
+figure[data-grid="img-6"] {
+	grid-area: 1 / 7 / 4 / 10;
+}
+
+figure {
+	position: relative;
+	overflow: hidden;
+	border-radius: 8px;
+	margin: 0;
+	padding: 0;
+}
+
+figure img {
+	object-fit: cover;
+}

@@ -5,8 +5,6 @@ import { ArrowUpRightIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { TbBuildingSkyscraper } from "react-icons/tb";
-import heroImageDark from "../../../../public/images/hero-image-dark.png";
-import heroImage from "../../../../public/images/hero-image.png";
 
 export function Hero() {
 	return (
@@ -71,21 +69,6 @@ export function Hero() {
 				</div>
 
 				<ToolsIUse />
-
-				<div className="mx-auto mt-16 max-w-5xl rounded-2xl border bg-card/50 p-2 shadow-lg dark:shadow-foreground/10">
-					<Image
-						src={heroImage}
-						alt="Our application"
-						className="block rounded-xl dark:hidden"
-						priority
-					/>
-					<Image
-						src={heroImageDark}
-						alt="Our application"
-						className="hidden rounded-xl dark:block"
-						priority
-					/>
-				</div>
 			</div>
 		</div>
 	);
