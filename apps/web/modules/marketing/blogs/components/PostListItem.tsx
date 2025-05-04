@@ -1,6 +1,7 @@
 "use client";
 
 import { LocaleLink } from "@i18n/routing";
+import { Card, CardContent, CardTitle } from "@ui/components/card";
 import type { Post } from "content-collections";
 import Image from "next/image";
 
@@ -9,72 +10,28 @@ export function PostListItem({ post }: { post: Post }) {
 		post;
 
 	return (
-		<div className="rounded-2xl border bg-card/50 p-6">
-			{image && (
-				<div className="-mx-4 -mt-4 relative mb-4 aspect-16/9 overflow-hidden rounded-xl">
+		<LocaleLink href={`/blogs/${post.path}`}>
+			<Card className="hover:shadow-xl transition-shadow duration-300 h-full border overflow-clip">
+				<CardContent className="p-0 overflow-hidden">
 					<Image
-						src={image}
-						alt={title}
-						fill
-						sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-						className="object-cover object-center"
+						src={post.image || "images/blogs/cover.png"}
+						alt={post.title}
+						width={800}
+						height={400}
+						className="w-full h-48 object-cover"
 					/>
-					<LocaleLink
-						href={`/blogs/${path}`}
-						className="absolute inset-0"
-					/>
-				</div>
-			)}
-
-			{tags && (
-				<div className="mb-2 flex flex-wrap gap-2">
-					{tags.map((tag) => (
-						<span
-							key={tag}
-							className="font-semibold text-primary text-xs uppercase tracking-wider"
-						>
-							#{tag}
-						</span>
-					))}
-				</div>
-			)}
-
-			<LocaleLink
-				href={`/blogs/${path}`}
-				className="font-semibold text-xl"
-			>
-				{title}
-			</LocaleLink>
-			{excerpt && <p className="opacity-50">{excerpt}</p>}
-
-			<div className="mt-4 flex items-center justify-between">
-				{authorName && (
-					<div className="flex items-center">
-						{authorImage && (
-							<div className="relative mr-2 size-8 overflow-hidden rounded-full">
-								<Image
-									src={authorImage}
-									alt={authorName}
-									fill
-									sizes="96px"
-									className="object-cover object-center"
-								/>
-							</div>
-						)}
+					<div className="p-6 flex flex-col justify-between h-full">
 						<div>
-							<p className="font-semibold text-sm opacity-50">
-								{authorName}
+							<CardTitle className="text-xl line-clamp-2">
+								{post.title}
+							</CardTitle>
+							<p className="text-muted-foreground mt-2 text-sm line-clamp-2">
+								{post.excerpt}
 							</p>
 						</div>
 					</div>
-				)}
-
-				<div className="mr-0 ml-auto">
-					<p className="text-sm opacity-30">
-						{Intl.DateTimeFormat("en-US").format(new Date(date))}
-					</p>
-				</div>
-			</div>
-		</div>
+				</CardContent>
+			</Card>
+		</LocaleLink>
 	);
 }

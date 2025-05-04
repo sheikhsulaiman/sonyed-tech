@@ -61,7 +61,7 @@ export default async function BlogPostPage(props: { params: Promise<Params> }) {
 		<div className="container max-w-6xl pt-32 pb-24">
 			<div className="mx-auto max-w-2xl">
 				<div className="mb-12">
-					<LocaleLink href="/blogs">&larr; Back to blog</LocaleLink>
+					<LocaleLink href="/blogs">&larr; Back to blogs</LocaleLink>
 				</div>
 
 				<h1 className="font-bold text-4xl">{title}</h1>
@@ -89,10 +89,12 @@ export default async function BlogPostPage(props: { params: Promise<Params> }) {
 					)}
 
 					<div className="mr-0 ml-auto">
-						<p className="text-sm opacity-30">
-							{Intl.DateTimeFormat("en-US").format(
-								new Date(date),
-							)}
+						<p className="text-sm text-muted-foreground">
+							{new Intl.DateTimeFormat("en-US", {
+								year: "numeric",
+								month: "long",
+								day: "numeric",
+							}).format(new Date(date))}
 						</p>
 					</div>
 
@@ -112,7 +114,7 @@ export default async function BlogPostPage(props: { params: Promise<Params> }) {
 			</div>
 
 			{image && (
-				<div className="relative mt-6 aspect-16/9 overflow-hidden rounded-xl">
+				<div className="relative mt-6 w-[800px] h-[400px] mx-auto overflow-hidden rounded-xl border">
 					<Image
 						src={image}
 						alt={title}

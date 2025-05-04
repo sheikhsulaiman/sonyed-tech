@@ -1,11 +1,11 @@
 "use client";
 
+import { PostList } from "@marketing/blogs/components/PostList";
 import { Button } from "@ui/components/button";
-import { Card, CardContent, CardTitle } from "@ui/components/card";
+import {} from "@ui/components/card";
 import { allPosts } from "content-collections";
 import { motion } from "framer-motion";
 import { ArrowUpRightIcon } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function BlogsSection() {
@@ -57,46 +57,7 @@ export default function BlogsSection() {
 				</motion.div>
 			</div>
 
-			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-				{latestPosts.map((post, i) => (
-					<motion.div
-						key={i}
-						initial={{ opacity: 0, y: 20 }}
-						whileInView={{ opacity: 1, y: 0 }}
-						transition={{ delay: i * 0.1, duration: 0.5 }}
-						viewport={{ once: true }}
-					>
-						<Card className="hover:shadow-xl transition-shadow duration-300 h-full border overflow-clip">
-							<CardContent className="p-0 overflow-hidden">
-								<Image
-									src={post.image || "images/blogs/cover.png"}
-									alt={post.title}
-									width={800}
-									height={400}
-									className="w-full h-48 object-cover"
-								/>
-								<div className="p-6 flex flex-col justify-between h-full">
-									<div>
-										<CardTitle className="text-xl line-clamp-2">
-											{post.title}
-										</CardTitle>
-										<p className="text-muted-foreground mt-2 text-sm line-clamp-2">
-											{post.excerpt}
-										</p>
-									</div>
-									<div className="mt-4">
-										<Link href={`/blogs/${post.path}`}>
-											<Button variant="outline">
-												Read More
-											</Button>
-										</Link>
-									</div>
-								</div>
-							</CardContent>
-						</Card>
-					</motion.div>
-				))}
-			</div>
+			<PostList posts={latestPosts} showFilter={false} />
 
 			<div className="mt-10 text-center md:hidden">
 				<Link href="/blogs">
