@@ -62,7 +62,7 @@ export function Hero() {
 					<Button size="lg" variant="link" asChild className="p-0">
 						<Link href="/contact">
 							Let&apos;s create something meaningful together.
-							<ArrowUpRightIcon className="ml-2 size-4" />
+							<ArrowUpRightIcon className="ml-2 size-4 hidden md:block" />
 						</Link>
 					</Button>
 					<SocialLinks />

@@ -1,10 +1,15 @@
 "use client";
+import { Button } from "@ui/components/button";
+import { motion } from "framer-motion";
 import gsap from "gsap";
 import { Flip } from "gsap/Flip";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ArrowUpRightIcon } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef } from "react";
 
-gsap.registerPlugin(Flip);
+gsap.registerPlugin(Flip, ScrollTrigger);
 
 const projects = [
 	{
@@ -47,6 +52,7 @@ const projects = [
 
 export function FeaturedProjects() {
 	const containerRef = useRef<HTMLDivElement>(null);
+	const headingRef = useRef<HTMLHeadingElement>(null);
 	const itemsRef = useRef<HTMLDivElement[]>([]);
 
 	useEffect(() => {
@@ -82,15 +88,58 @@ export function FeaturedProjects() {
 		return () => clearInterval(interval);
 	}, []);
 
+	useEffect(() => {
+		if (!headingRef.current) {
+			return;
+		}
+
+		gsap.to(
+			headingRef.current,
+			// { scale: 4, opacity: 0.2 },
+			{
+				scale: 1,
+				opacity: 1,
+				ease: "power2.out",
+				scrollTrigger: {
+					trigger: headingRef.current,
+					start: "top 90%",
+					end: "bottom 50%",
+					scrub: true,
+				},
+			},
+		);
+	}, []);
+
 	return (
 		<div className="relative max-w-full overflow-x-hidden bg-linear-to-b from-0% from-card to-[50vh] to-background">
 			<div className="absolute left-1/2 mt-32 z-10 ml-[-500px] h-[500px] w-[1000px] rounded-full bg-linear-to-r from-primary to-bg opacity-20 blur-[150px]" />
-			<div className="container relative z-20 pb-12 text-center lg:pb-16">
+			<div className="container relative z-20 py-16 text-center lg:pb-16">
 				<div className="text-center mb-10">
-					<h2 className="text-3xl font-bold">Featured Projects</h2>
-					<p className="text-muted text-sm">
-						A showcase of my best work
-					</p>
+					<h1
+						ref={headingRef}
+						className="text-3xl md:text-6xl font-bold scale-400 opacity-10 py-4"
+					>
+						Selected Projects
+					</h1>
+
+					<motion.h6
+						initial={{ opacity: 0, y: 30 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						transition={{ delay: 0.3, duration: 0.6 }}
+						className="font-bold text-center font-poppins text-sm md:text-lg"
+					>
+						Take a look at some of my projects ✦
+					</motion.h6>
+					<motion.p
+						initial={{ opacity: 0, y: 30 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						transition={{ delay: 0.4, duration: 0.6 }}
+						className="text-center max-w-xl font-roboto text-muted-foreground mx-auto font-space-grotesk"
+					>
+						Each project highlights my innovative journey and
+						commitment to transforming concepts into functional and
+						impactful software solutions.
+					</motion.p>
 				</div>
 				<div
 					ref={containerRef}
@@ -117,6 +166,30 @@ export function FeaturedProjects() {
 							/>
 						</figure>
 					))}
+				</div>
+				<div className="mt-6 flex flex-col items-center justify-between max-w-6xl mx-auto gap-3 md:flex-row">
+					<Button
+						size="lg"
+						variant={"outline"}
+						asChild
+						className="md:ml-4"
+					>
+						<Link href="/projects">
+							All Projects
+							<ArrowUpRightIcon className="ml-2 size-4" />
+						</Link>
+					</Button>
+					<Button
+						size="lg"
+						variant="link"
+						className="text-sm md:text-lg"
+						asChild
+					>
+						<Link href="/contact">
+							Let&apos;s create something meaningful together.
+							<ArrowUpRightIcon className="ml-2 size-4 hidden md:block" />
+						</Link>
+					</Button>
 				</div>
 			</div>
 		</div>

@@ -58,12 +58,6 @@ export default function BlogsSection() {
 			</div>
 
 			<PostList posts={latestPosts} showFilter={false} />
-
-			<div className="mt-10 text-center md:hidden">
-				<Link href="/blogs">
-					<Button size="lg">View All Blogs</Button>
-				</Link>
-			</div>
 		</section>
 	);
 }

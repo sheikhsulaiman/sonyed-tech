@@ -1483,7 +1483,7 @@ export function ToolsIUse() {
 	}, []);
 
 	return (
-		<div className="space-y-8 py-24">
+		<div className="space-y-8 pt-24">
 			<div className="mx-auto flex w-full max-w-screen-lg flex-col items-center space-y-8">
 				<h5 className="font-semibold text-foreground/50 text-xs uppercase tracking-wider">
 					I build & ship projects with these awesome tools
