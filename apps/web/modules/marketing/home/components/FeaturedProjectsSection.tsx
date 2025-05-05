@@ -1,5 +1,6 @@
 "use client";
 import { Button } from "@ui/components/button";
+import { cn } from "@ui/lib";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { Flip } from "gsap/Flip";
@@ -7,7 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowUpRightIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 gsap.registerPlugin(Flip, ScrollTrigger);
 
@@ -16,31 +17,55 @@ const projects = [
 		id: "img-1",
 		src: "https://images.pexels.com/photos/691114/pexels-photo-691114.jpeg",
 		alt: "Project 1",
+		title: "Project 1",
+		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+		caseStudyUrl: "/projects/project1",
+		liveDemoUrl: "https://example.com/project1",
 	},
 	{
 		id: "img-2",
 		src: "https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg",
 		alt: "Project 2",
+		title: "Project 2",
+		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+		caseStudyUrl: "/projects/project2",
+		liveDemoUrl: "https://example.com/project2",
 	},
 	{
 		id: "img-3",
 		src: "https://images.pexels.com/photos/1660030/pexels-photo-1660030.jpeg",
 		alt: "Project 3",
+		title: "Project 3",
+		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+		caseStudyUrl: "/projects/project3",
+		liveDemoUrl: "https://example.com/project3",
 	},
 	{
 		id: "img-4",
 		src: "https://images.pexels.com/photos/1640773/pexels-photo-1640773.jpeg",
 		alt: "Project 4",
+		title: "Project 4",
+		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+		caseStudyUrl: "/projects/project4",
+		liveDemoUrl: "https://example.com/project4",
 	},
 	{
 		id: "img-5",
 		src: "https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg",
 		alt: "Project 5",
+		title: "Project 5",
+		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+		caseStudyUrl: "/projects/project5",
+		liveDemoUrl: "https://example.com/project5",
 	},
 	{
 		id: "img-6",
 		src: "https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg",
 		alt: "Project 6",
+		title: "Project 6",
+		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+		caseStudyUrl: "/projects/project6",
+		liveDemoUrl: "https://example.com/project6",
 	},
 	// { id: "img-1", src: "/images/projects/project1.jpg", alt: "Project 1" },
 	// { id: "img-2", src: "/images/projects/project2.jpg", alt: "Project 2" },
@@ -54,6 +79,7 @@ export function FeaturedProjects() {
 	const containerRef = useRef<HTMLDivElement>(null);
 	const headingRef = useRef<HTMLHeadingElement>(null);
 	const itemsRef = useRef<HTMLDivElement[]>([]);
+	const [bigId, setBigId] = useState(projects[0].id);
 
 	useEffect(() => {
 		const interval = setInterval(() => {
@@ -83,6 +109,17 @@ export function FeaturedProjects() {
 				stagger: 0.02,
 				prune: true,
 			});
+
+			// ✅ Update the bigId based on who is now data-grid="img-1"
+			const bigFigure = Array.from(figures).find(
+				(fig) => fig.dataset.grid === "img-1",
+			);
+			if (bigFigure) {
+				const newBigId = bigFigure.getAttribute("data-id");
+				if (newBigId) {
+					setBigId(newBigId);
+				}
+			}
 		}, 3000);
 
 		return () => clearInterval(interval);
@@ -149,6 +186,7 @@ export function FeaturedProjects() {
 						<figure
 							key={project.id}
 							data-id={project.id}
+							className={`relative group overflow-hidden rounded-lg ${project.id === bigId ? "is-big" : ""}`}
 							data-grid={`img-${index + 1}`}
 							ref={(el) => {
 								if (el) {
@@ -164,6 +202,42 @@ export function FeaturedProjects() {
 								className="object-cover"
 								sizes="(max-width: 768px) 100vw, 33vw"
 							/>
+							{/* Overlay for big image */}
+							<div
+								// ref={overlayRef}
+								className={cn(
+									"absolute inset-0 z-10 flex flex-col justify-end p-6 text-white bg-gradient-to-t from-black/70 via-black/50 to-transparent transition-opacity duration-500",
+									{
+										"opacity-70 pointer-events-auto":
+											bigId === project.id,
+										"opacity-0 group-hover:opacity-70 group-hover:pointer-events-auto":
+											bigId !== project.id,
+									},
+								)}
+							>
+								<h3 className="text-xl font-bold mb-2">
+									{project.title}
+								</h3>
+								<p className="text-sm mb-4">
+									{project.description}
+								</p>
+								<div className="flex gap-3">
+									<a
+										href={project.caseStudyUrl}
+										className="bg-white text-black px-4 py-2 rounded hover:bg-gray-200 transition"
+									>
+										Case Study
+									</a>
+									<a
+										href={project.liveDemoUrl}
+										target="_blank"
+										rel="noopener noreferrer"
+										className="bg-transparent border border-white px-4 py-2 rounded hover:bg-white hover:text-black transition"
+									>
+										Live Demo
+									</a>
+								</div>
+							</div>
 						</figure>
 					))}
 				</div>
